@@ -1,0 +1,15 @@
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: 16px;
+    color: #575757;
+    margin: 0;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.row {
+    margin: 20px 0;
+}
