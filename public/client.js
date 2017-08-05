@@ -4,36 +4,34 @@ $(document).ready(function () {
     var operator;
 
     $('#selectOperation').on('click', '.operator', function () {
+        $('.operator').removeClass('active-operator');
+
         if ($(this)[0].id === 'add') {
-            operator = '+';
-            $('.operator').removeClass('active-operator');
+            operator = 'add';
             $(this).addClass('active-operator');
         } else if ($(this)[0].id === 'subtract') {
-            operator = '-';
-            $('.operator').removeClass('active-operator');
+            operator = 'subtract';
             $(this).addClass('active-operator');
         } else if ($(this)[0].id === 'multiply') {
-            operator = '*';
-            $('.operator').removeClass('active-operator');
+            operator = 'multiply';
             $(this).addClass('active-operator');
         } else if ($(this)[0].id === 'divide') {
-            operator = '/';
-            $('.operator').removeClass('active-operator');
+            operator = 'divide';
             $(this).addClass('active-operator');
         }
     });
 
     // POST the calculation elements to the server
-    $('#submitCalculation').on('click', function(){
-        var numberOneValue = $('#numberOne').val();
-        var numberTwoValue = $('#numberTwo').val();
+    $('#submitCalculationButton').on('click', function(){
+        var x = $('#numberOne').val();
+        var y = $('#numberTwo').val();
         
         $.ajax({
             method: 'POST',
             url: '/calculation',
             data: {
-                numberOneValue: numberOneValue,
-                numberTwoValue: numberTwoValue,
+                numberOneValue: x,
+                numberTwoValue: y,
                 operation: operator
             },
             success: function (response) {
@@ -42,15 +40,23 @@ $(document).ready(function () {
             }
         })
     });
+
+    $('#clearButton').on('click', function(){
+        $('#numberOne').val('');
+        $('#numberTwo').val('');
+        $('.operator').removeClass('active-operator');
+        $('#result').html('');
+    });
 });
 
 // GET the final calucation logic from the server
 function getCalculation() {
     $.ajax({
         method: 'GET',
-        url: '/theCalculation',
+        url: '/compute',
         success: function (response) {
-            console.log(eval(response));
+            console.log(response);
+            $('#result').html(response.result);
         }
     });
 }
