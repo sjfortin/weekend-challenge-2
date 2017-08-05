@@ -13,3 +13,7 @@ body {
 .row {
     margin: 20px 0;
 }
+
+.active-operator {
+    background: red;
+}
