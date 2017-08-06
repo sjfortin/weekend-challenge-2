@@ -1,69 +1,103 @@
-// Global variables
+/*
+Todos:
+- Cannot currently string operations together. Only one operation per computation
+*/
+
+var firstNumber = '';
+var secondNumber = '';
 var operator;
+var operatorClicked = false;
+var firstNumberDecimalClicked = false;
+var secondNumberDecimalClicked = false;
 
 $(document).ready(function () {
-    $('#selectOperation').on('click', '.operator', selectOperator);
-    $('#submitCalculationButton').on('click', submitCalculation);
-    $('#clearButton').on('click', clearCalculator);
+    // Event listeners
+    $('#calculator').on('click', '.calc-button', getValuesAndOperation);
+    $('#equals').on('click', submitCalculation);
+    $('#clear').on('click', clearCalculator);
+
 });
 
-// Set the user's selected operation
-function selectOperator() {
-    $('.operator').removeClass('active-operator');
+// Get number values and operation from user
+function getValuesAndOperation() {
 
-    var operatorSelected = $(this)[0].id;
-
-    if (operatorSelected === 'add') {
-        operator = 'add';
-        $(this).addClass('active-operator');
-    } else if (operatorSelected === 'subtract') {
-        operator = 'subtract';
-        $(this).addClass('active-operator');
-    } else if (operatorSelected === 'multiply') {
-        operator = 'multiply';
-        $(this).addClass('active-operator');
-    } else if (operatorSelected === 'divide') {
-        operator = 'divide';
-        $(this).addClass('active-operator');
+    // If button clicked is a number or decimal
+    if ($(this).attr('data-value')) {
+        if (operatorClicked === false) {
+            // Set first number of operation
+            if (firstNumberDecimalClicked === false || (firstNumberDecimalClicked === true && $(this).data().value !== '.')) {
+                firstNumber += $(this).data().value;
+            }
+            if ($(this).data().value === '.') {
+                firstNumberDecimalClicked = true;
+            }
+            console.log('first number is ' + firstNumber);
+            $('#output').text(firstNumber);
+        } else if (operatorClicked == true) {
+            // Set second number of operation
+            if (secondNumberDecimalClicked === false || (secondNumberDecimalClicked === true && $(this).data().value !== '.')) {
+                secondNumber += $(this).data().value;
+            }
+            if ($(this).data().value === '.') {
+                secondNumberDecimalClicked = true;
+            }
+            console.log('second number is ' + secondNumber);
+            $('#output').text(secondNumber);
+        }
     }
+
+    // If button cliked is an operation
+    if ($(this).attr('data-operator') && operatorClicked == false && firstNumber.length !== 0) {
+        operatorClicked = true;
+        operator = $(this).data().operator;
+        console.log('operator is: ' + operator);
+        $('#output').text($(this).html());
+    }
+
 }
 
-// POST the bundled calculation to the server
+// POST calculation to the server
 function submitCalculation() {
-    var x = $('#numberOne').val();
-    var y = $('#numberTwo').val();
-
     $.ajax({
         method: 'POST',
         url: '/calculation',
         data: {
-            numberOneValue: x,
-            numberTwoValue: y,
+            numberOneValue: firstNumber,
+            numberTwoValue: secondNumber,
             operation: operator
         },
         success: function (response) {
             console.log(response);
             getCalculation();
+            firstNumber = '';
+            secondNumber = '';
+            operator = '';
+            operatorClicked = false;
+            firstNumberDecimalClicked = false;
+            secondNumberDecimalClicked = false;
         }
-    })
+    });
 }
 
 // GET the final calculation logic from the server
 function getCalculation() {
     $.ajax({
         method: 'GET',
-        url: '/finalComputation',
+        url: '/calculationResult',
         success: function (response) {
             console.log(response);
-            $('#result').html(response.result);
+            $('#output').html(response.result);
         }
     });
 }
 
-// Clear the calculator
+// Clear calculator function
 function clearCalculator() {
-    $('#numberOne').val('');
-    $('#numberTwo').val('');
-    $('.operator').removeClass('active-operator');
-    $('#result').html('');
+    $('#output').html('0');
+    firstNumber = '';
+    secondNumber = '';
+    operator = '';
+    operatorClicked = false;
+    firstNumberDecimalClicked = false;
+    secondNumberDecimalClicked = false;
 }
