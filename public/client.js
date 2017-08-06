@@ -53,30 +53,31 @@ function getValuesAndOperation() {
         console.log('operator is: ' + operator);
         $('#output').text($(this).html());
     }
-
 }
 
 // POST calculation to the server
 function submitCalculation() {
-    $.ajax({
-        method: 'POST',
-        url: '/calculation',
-        data: {
-            numberOneValue: firstNumber,
-            numberTwoValue: secondNumber,
-            operation: operator
-        },
-        success: function (response) {
-            console.log(response);
-            getCalculation();
-            firstNumber = '';
-            secondNumber = '';
-            operator = '';
-            operatorClicked = false;
-            firstNumberDecimalClicked = false;
-            secondNumberDecimalClicked = false;
-        }
-    });
+    if (firstNumber.length !== 0 && secondNumber.length !== 0) {
+        $.ajax({
+            method: 'POST',
+            url: '/calculation',
+            data: {
+                numberOneValue: firstNumber,
+                numberTwoValue: secondNumber,
+                operation: operator
+            },
+            success: function (response) {
+                console.log(response);
+                getCalculation();
+                firstNumber = '';
+                secondNumber = '';
+                operator = '';
+                operatorClicked = false;
+                firstNumberDecimalClicked = false;
+                secondNumberDecimalClicked = false;
+            }
+        });
+    }
 }
 
 // GET the final calculation logic from the server
@@ -86,7 +87,10 @@ function getCalculation() {
         url: '/calculationResult',
         success: function (response) {
             console.log(response);
-            $('#output').html(response.result);
+            $('#output').text("Computing . . .");
+            setTimeout(function () {
+                $('#output').text(response.result);
+            }, 3000);
         }
     });
 }
