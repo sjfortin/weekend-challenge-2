@@ -5,7 +5,10 @@ body {
     margin: 0;
 }
 
-/* .container {
+
+/* Commented out css base mode
+
+.container {
     width: 800px;
     margin: 0 auto;
     text-align: center;
@@ -20,9 +23,17 @@ body {
     color: #fff;
 }  */
 
-.calculator {
-    width: 492px;
-    margin: 40px auto;
+#calculator {
+    margin: 40px;
+}
+
+#values {
+    float: left;
+    margin-right: 6px;
+}
+
+#operations {
+    float: left;
 }
 
 .row {
@@ -31,14 +42,15 @@ body {
 }
 
 #output {
-    background: #f3f3f3;
+    background: #fff;
     border-radius: 4px;
     text-align: center;
     padding: 10px;
     box-sizing: border-box;
+    border: 1px solid #575757;
 }
 
-.square {
+.calc-button {
     margin: 0 6px 6px 0;
     width: 160px;
     padding: 10px;
@@ -53,14 +65,10 @@ body {
     transition: .25s all;
 }
 
-.square:hover {
+.calc-button:hover {
     background: #e3e3e3;
 }
 
-.square:last-child {
+.calc-button:last-child {
     margin-right: 0;
-}
-
-h1 {
-    text-align: center;
 }

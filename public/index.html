@@ -5,11 +5,14 @@
     <title>Weekend Challenge #2</title>
     <link rel="stylesheet" href="styles.css">
     <script src="vendors/jquery-3.2.1.min.js"></script>
-    <script src="client.js"></script>
+    <!-- <script src="client.js"></script> -->
+    <script src="client-hard-mode.js"></script>
 </head>
 
 <body>
-    <!-- <div class="container">
+    <!-- Commented out base mode html 
+        
+        <div class="container">
         <h1>Calculator</h1>
         <div class="row">
             <input type="number" placeholder="number1" id="numberOne">
@@ -32,30 +35,49 @@
             <div id="result"></div>
         </div>
     </div> -->
-    <h1>Calculator</h1>
-    <div class="calculator">
-        <div class="row">
-            <div id="output">0</div>
+    <div id="calculator">
+        <h1>Calculator</h1>
+        <div id="values">
+            <div class="row">
+                <div id="output">&nbsp;</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-value="7">7</div>
+                <div class="calc-button" data-value="8">8</div>
+                <div class="calc-button" data-value="9">9</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-value="4">4</div>
+                <div class="calc-button" data-value="5">5</div>
+                <div class="calc-button" data-value="6">6</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-value="1">1</div>
+                <div class="calc-button" data-value="2">2</div>
+                <div class="calc-button" data-value="3">3</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-value="0">0</div>
+                <div class="calc-button" data-value=".">.</div>
+                <div class="calc-button" id="equals">=</div>
+            </div>
         </div>
-        <div class="row">
-            <div class="square" data-value="7">7</div>
-            <div class="square" data-value="8">8</div>
-            <div class="square" data-value="9">9</div>
-        </div>
-        <div class="row">
-            <div class="square" data-value="4">4</div>
-            <div class="square" data-value="5">5</div>
-            <div class="square" data-value="6">6</div>
-        </div>
-        <div class="row">
-            <div class="square" data-value="1">1</div>
-            <div class="square" data-value="2">2</div>
-            <div class="square" data-value="3">3</div>
-        </div>
-        <div class="row">
-            <div class="square" id="clear">Clear</div>
-            <div class="square" data-value="0">0</div>
-            <div class="square" id="equals">=</div>
+        <div id="operations">
+            <div class="row">
+                <div class="calc-button" id="clear">Clear</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-operator="/">&divide;</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-operator="*">&times;</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-operator="-">-</div>
+            </div>
+            <div class="row">
+                <div class="calc-button" data-operator="+">+</div>
+            </div>
         </div>
     </div>
 </body>
