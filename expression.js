@@ -1,14 +1,14 @@
 function setExpresssion(x, y, operator) {
     var expression = {};
-    if (operator === 'add') {
+    if (operator === '+') {
         expression.result = x + y;
-    } else if (operator === 'subtract') {
+    } else if (operator === '-') {
         expression.result = x - y;
-    } else if (operator === 'multiply') {
+    } else if (operator === '*') {
         expression.result = x * y;
-    } else if (operator === 'divide') {
+    } else if (operator === '/') {
         expression.result = x / y;
-    }
+    }    
     return expression;
 }
 

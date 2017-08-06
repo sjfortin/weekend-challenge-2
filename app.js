@@ -17,13 +17,13 @@ app.use(bodyParser.urlencoded({
 
 app.post('/calculation', function (req, res) {
     console.log(req.body);
-    x = parseInt(req.body.numberOneValue);
-    y = parseInt(req.body.numberTwoValue);
+    x = parseFloat(req.body.numberOneValue);    
+    y = parseFloat(req.body.numberTwoValue);
     operator = req.body.operation;
     res.sendStatus(201);
 });
 
-app.get('/finalComputation', function (req, res) {
+app.get('/calculationResult', function (req, res) {
     res.send(setExpression(x, y, operator));
 });
 
