@@ -42,18 +42,20 @@ body {
 }
 
 #output {
-    background: #fff;
+    background: #575757;
+    color: #fff;
     border-radius: 4px;
     text-align: center;
-    padding: 10px;
+    padding: 15px;
     box-sizing: border-box;
-    border: 1px solid #575757;
+    letter-spacing: 1px;
+    text-align: right;
 }
 
 .calc-button {
     margin: 0 6px 6px 0;
     width: 160px;
-    padding: 10px;
+    padding: 15px;
     border-radius: 4px;
     background: #f3f3f3;
     float: left;

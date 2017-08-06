@@ -1,6 +1,5 @@
 /*
 Todos:
-- Can currently input more than decimal
 - Cannot string operations together. Only one operation per computation
 
 
@@ -44,7 +43,7 @@ $(document).ready(function () {
             operatorClicked = true;
             operator = $(this).data().operator;
             console.log('operator is: ' + operator);
-            $('#output').text(operator);
+            $('#output').text($(this).html());
         }
 
         // If button clicked is equals
