@@ -10,31 +10,6 @@
 </head>
 
 <body>
-    <!-- Commented out base mode html 
-        
-        <div class="container">
-        <h1>Calculator</h1>
-        <div class="row">
-            <input type="number" placeholder="number1" id="numberOne">
-            <input type="number" placeholder="number2" id="numberTwo">
-        </div>
-        <div class="row">
-            <div id="selectOperation">
-                <button id="add" class="operator">Add</button>
-                <button id="subtract" class="operator">Subtract</button>
-                <button id="multiply" class="operator">Multiply</button>
-                <button id="divide" class="operator">Divide</button>
-            </div>
-        </div>
-        <div class="row">
-            <button id="submitCalculationButton">Calculate!</button>
-            <button id="clearButton">Clear</button>
-        </div>
-        <div class="row">
-            <h1>Result</h1>
-            <div id="result"></div>
-        </div>
-    </div> -->
     <div id="calculator">
         <h1>Calculator</h1>
         <div id="values">
@@ -64,16 +39,16 @@
         </div>
         <div id="operations">
             <div class="row">
-                <div class="calc-button" data-operator="/">&divide;</div>
+                <div class="calc-button operation" data-operator="/">&divide;</div>
             </div>
             <div class="row">
-                <div class="calc-button" data-operator="*">&times;</div>
+                <div class="calc-button operation" data-operator="*">&times;</div>
             </div>
             <div class="row">
-                <div class="calc-button" data-operator="-">-</div>
+                <div class="calc-button operation" data-operator="-">-</div>
             </div>
             <div class="row">
-                <div class="calc-button" data-operator="+">+</div>
+                <div class="calc-button operation" data-operator="+">+</div>
             </div>
             <div class="row">
                 <div class="calc-button" id="equals">=</div>

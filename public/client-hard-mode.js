@@ -1,6 +1,6 @@
 /*
 Todos:
-- Cannot string operations together. Only one operation per computation
+- Cannot currently string operations together. Only one operation per computation
 */
 
 var firstNumber = '';
@@ -58,8 +58,6 @@ function getValuesAndOperation() {
 
 // POST calculation to the server
 function submitCalculation() {
-
-
     $.ajax({
         method: 'POST',
         url: '/calculation',

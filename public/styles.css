@@ -1,27 +1,9 @@
 body {
     font-family: Helvetica, sans-serif;
     font-size: 16px;
-    color: #575757;
+    color: #011627;
     margin: 0;
 }
-
-
-/* Commented out css base mode
-
-.container {
-    width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
- .row {
-    margin: 20px 0;
-}
-
-.active-operator {
-    background: #202020;
-    color: #fff;
-}  */
 
 #calculator {
     margin: 40px;
@@ -42,7 +24,7 @@ body {
 }
 
 #output {
-    background: #575757;
+    background: #011627;
     color: #fff;
     border-radius: 4px;
     text-align: center;
@@ -57,7 +39,7 @@ body {
     width: 160px;
     padding: 15px;
     border-radius: 4px;
-    background: #f3f3f3;
+    background: #eff0f1;
     float: left;
     text-align: center;
     box-sizing: border-box;
@@ -68,9 +50,34 @@ body {
 }
 
 .calc-button:hover {
-    background: #e3e3e3;
+    background: #e5e7e9;
 }
 
 .calc-button:last-child {
     margin-right: 0;
+}
+
+#equals {
+    background: #ffc576;
+}
+
+#equals:hover {
+    background: #ffb249;
+}
+
+#clear {
+    background: #f8455d;
+    color: #FDFFFC;
+}
+
+#clear:hover {
+    background: #F71735;
+}
+
+.operation {
+    background: #a0f4e9;
+}
+
+.operation:hover {
+    background: #7af0e0;
 }
