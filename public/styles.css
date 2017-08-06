@@ -32,6 +32,7 @@ body {
     box-sizing: border-box;
     letter-spacing: 1px;
     text-align: right;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .calc-button {
@@ -47,6 +48,7 @@ body {
     -webkit-transition: .25s all;
     -moz-transition: .25s all;
     transition: .25s all;
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .calc-button:hover {
