@@ -5,15 +5,62 @@ body {
     margin: 0;
 }
 
-.container {
+/* .container {
     width: 800px;
     margin: 0 auto;
+    text-align: center;
 }
 
-.row {
+ .row {
     margin: 20px 0;
 }
 
 .active-operator {
-    background: red;
+    background: #202020;
+    color: #fff;
+}  */
+
+.calculator {
+    width: 492px;
+    margin: 40px auto;
+}
+
+.row {
+    margin: 5px 0;
+    clear: both;
+}
+
+#output {
+    background: #f3f3f3;
+    border-radius: 4px;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.square {
+    margin: 0 6px 6px 0;
+    width: 160px;
+    padding: 10px;
+    border-radius: 4px;
+    background: #f3f3f3;
+    float: left;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    -webkit-transition: .25s all;
+    -moz-transition: .25s all;
+    transition: .25s all;
+}
+
+.square:hover {
+    background: #e3e3e3;
+}
+
+.square:last-child {
+    margin-right: 0;
+}
+
+h1 {
+    text-align: center;
 }
