@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
+// Receive user input for the calculation
 app.post('/calculation', function (req, res) {
     console.log(req.body);
     x = parseFloat(req.body.numberOneValue);    
@@ -23,6 +24,7 @@ app.post('/calculation', function (req, res) {
     res.sendStatus(201);
 });
 
+// Send calculation result back to the client
 app.get('/calculationResult', function (req, res) {
     res.send(setExpression(x, y, operator));
 });

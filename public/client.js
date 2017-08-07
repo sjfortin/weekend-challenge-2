@@ -16,7 +16,6 @@ $(document).ready(function () {
     $('#calculator').on('click', '.calc-button', getValuesAndOperation);
     $('#equals').on('click', submitCalculation);
     $('#clear').on('click', clearCalculator);
-
 });
 
 // Get number values and operation from user
