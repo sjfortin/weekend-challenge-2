@@ -1,2 +1,3 @@
 # Weekend Challenge #2
-## Sam Fortin
+### Calculator application using jQuery, Node, and Express
+Author: Sam Fortin
