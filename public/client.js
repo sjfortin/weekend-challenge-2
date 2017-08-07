@@ -24,22 +24,23 @@ function getValuesAndOperation() {
 
     // If button clicked is a number or decimal
     if ($(this).attr('data-value')) {
+        var valueClicked = $(this).data().value;
         if (operatorClicked === false) {
             // Set first number of operation
-            if (firstNumberDecimalClicked === false || (firstNumberDecimalClicked === true && $(this).data().value !== '.')) {
-                firstNumber += $(this).data().value;
+            if (firstNumberDecimalClicked === false || (firstNumberDecimalClicked === true && valueClicked !== '.')) {
+                firstNumber += valueClicked;
             }
-            if ($(this).data().value === '.') {
+            if (valueClicked === '.') {
                 firstNumberDecimalClicked = true;
             }
             console.log('first number is ' + firstNumber);
             $('#output').text(firstNumber);
         } else if (operatorClicked == true) {
             // Set second number of operation
-            if (secondNumberDecimalClicked === false || (secondNumberDecimalClicked === true && $(this).data().value !== '.')) {
-                secondNumber += $(this).data().value;
+            if (secondNumberDecimalClicked === false || (secondNumberDecimalClicked === true && valueClicked !== '.')) {
+                secondNumber += valueClicked;
             }
-            if ($(this).data().value === '.') {
+            if (valueClicked === '.') {
                 secondNumberDecimalClicked = true;
             }
             console.log('second number is ' + secondNumber);
