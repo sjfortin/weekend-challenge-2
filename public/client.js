@@ -1,12 +1,13 @@
 /*
-Todos:
-- Cannot currently string operations together. Only one operation per computation
+Enhancement:
+- Be able to string operations together. Currently only one operation per computation
 */
 
 var firstNumber = '';
 var secondNumber = '';
 var operator;
 var operatorClicked = false;
+var operatorToDisplay;
 var firstNumberDecimalClicked = false;
 var secondNumberDecimalClicked = false;
 
@@ -42,7 +43,7 @@ function getValuesAndOperation() {
                 secondNumberDecimalClicked = true;
             }
             console.log('second number is ' + secondNumber);
-            $('#output').text(secondNumber);
+            $('#output').text(firstNumber + ' ' + operatorToDisplay + ' ' + secondNumber);
         }
     }
 
@@ -50,8 +51,9 @@ function getValuesAndOperation() {
     if ($(this).attr('data-operator') && operatorClicked == false && firstNumber.length !== 0) {
         operatorClicked = true;
         operator = $(this).data().operator;
+        operatorToDisplay = $(this).html();
         console.log('operator is: ' + operator);
-        $('#output').text($(this).html());
+        $('#output').text(firstNumber + ' ' + operatorToDisplay);
     }
 }
 
@@ -89,7 +91,7 @@ function getCalculation() {
             console.log(response);
             $('#output').text("Computing . . .");
             setTimeout(function () {
-                $('#output').text(response.result);
+                $('#output').text('Result: ' + response.result);
             }, 3000);
         }
     });

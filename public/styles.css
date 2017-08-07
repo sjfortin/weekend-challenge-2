@@ -1,48 +1,44 @@
 body {
     font-family: Helvetica, sans-serif;
     font-size: 16px;
+    line-height: 1;
     color: #011627;
     margin: 0;
 }
 
 #calculator {
-    margin: 40px;
-}
-
-#values {
-    float: left;
-    margin-right: 6px;
-}
-
-#operations {
-    float: left;
+    margin: 40px auto;
+    overflow: hidden;
+    width: 420px;
+    text-align: center;
 }
 
 .row {
     margin: 5px 0;
     clear: both;
+    overflow: hidden;
 }
 
 #output {
+    width: 312px;
+    float: left;
+    margin: 0 6px 3px 0;
     background: #011627;
     color: #fff;
     border-radius: 4px;
-    text-align: center;
     padding: 15px;
     box-sizing: border-box;
     letter-spacing: 1px;
-    text-align: right;
     box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.3);
 }
 
 .calc-button {
-    margin: 0 6px 6px 0;
-    width: 160px;
+    margin: 0 6px 3px 0;
+    width: 100px;
     padding: 15px;
     border-radius: 4px;
-    background: #eff0f1;
+    background: #e5e7e9;
     float: left;
-    text-align: center;
     box-sizing: border-box;
     cursor: pointer;
     -webkit-transition: .25s all;
@@ -52,11 +48,19 @@ body {
 }
 
 .calc-button:hover {
-    background: #e5e7e9;
+    background: #b2b9be;
 }
 
 .calc-button:last-child {
     margin-right: 0;
+}
+
+.operation {
+    background: #8df2e5;
+}
+
+.operation:hover {
+    background: #41ead4;
 }
 
 #equals {
@@ -74,12 +78,4 @@ body {
 
 #clear:hover {
     background: #F71735;
-}
-
-.operation {
-    background: #a0f4e9;
-}
-
-.operation:hover {
-    background: #7af0e0;
 }
